@@ -1,9 +1,9 @@
-import OpenButton from './OpenButton';
+import StartMenu from './StartMenu';
 
 function StartPage() {
 	return (
 		<>
-			<OpenButton />
+			<StartMenu />
 		</>
 	);
 }
