@@ -1,6 +1,17 @@
 # Flower-shop-game
 A game consisting in selling flowers to customer, in a retro style. The implementation is done in typescript, using the React framework
 
+## Run locally
+
+Install Node.js 22.13 or newer, then run these commands from the `flower-shop` directory:
+
+```sh
+npm ci
+npm run dev
+```
+
+Open the localhost URL printed by Vite. In PowerShell, use `Remove-Item -Recurse -Force .\node_modules` if you need to remove the installed dependencies before reinstalling them.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
