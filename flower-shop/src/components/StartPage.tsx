@@ -1,12 +1,11 @@
-import OpenButton from "./OpenButton"
+import OpenButton from './OpenButton';
 
 function StartPage() {
-
-  return (
-    <>
-      <OpenButton />
-    </>
-  )
+	return (
+		<>
+			<OpenButton />
+		</>
+	);
 }
 
-export default StartPage
+export default StartPage;
