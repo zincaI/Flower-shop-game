@@ -1,4 +1,4 @@
-import StartMenu from './StartMenu';
+import StartMenu from '../components/StartMenu';
 
 function StartPage() {
 	return (

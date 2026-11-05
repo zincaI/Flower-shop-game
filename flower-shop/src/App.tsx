@@ -1,13 +1,12 @@
-import './App.css'
-import StartPage from './components/StartPage'
+import './App.css';
+import StartPage from './pages/StartPage';
 
 function App() {
-
-  return (
-    <>
-      <StartPage />
-    </>
-  )
+	return (
+		<>
+			<StartPage />
+		</>
+	);
 }
 
-export default App
+export default App;
