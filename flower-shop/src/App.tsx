@@ -4,7 +4,9 @@ import StartPage from './pages/StartPage';
 function App() {
 	return (
 		<>
-			<StartPage />
+			<div className='background'>
+				<StartPage />
+			</div>
 		</>
 	);
 }
