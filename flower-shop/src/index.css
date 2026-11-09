@@ -76,11 +76,12 @@ h2 {
 }
 
 h1 {
-	font-size: 56px;
-	letter-spacing: -1.68px;
+	font-family: 'm6x11', sans-serif;
+	font-size: 48px;
+	font-weight: normal;
 	margin: 32px 0;
 	@media (max-width: 1024px) {
-		font-size: 36px;
+		font-size: 32px;
 		margin: 20px 0;
 	}
 }
@@ -94,6 +95,8 @@ h2 {
 	}
 }
 p {
+	font-family: 'm6x11', sans-serif;
+	font-size: 16px;
 	margin: 0;
 }
 
@@ -110,4 +113,10 @@ code {
 	line-height: 135%;
 	padding: 4px 8px;
 	background: var(--code-bg);
+}
+
+@font-face {
+	font-family: 'm6x11';
+	src: url('./assets/fonts/m6x11.ttf') format('truetype');
+	font-weight: normal;
 }

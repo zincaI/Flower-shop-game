@@ -1,10 +1,10 @@
 /* From Uiverse.io by adamgiebl */
 .open-button {
 	background: #fbca1f;
-	font-family: inherit;
+	font-family: 'm6x11', sans-serif;
 	padding: 0.6em 1.3em;
-	font-weight: 900;
-	font-size: 18px;
+	font-weight: normal;
+	font-size: 16px;
 	border: 3px solid black;
 	border-radius: 0.4em;
 	box-shadow: 0.1em 0.1em;
@@ -19,4 +19,16 @@
 .open-button:active {
 	transform: translate(0.05em, 0.05em);
 	box-shadow: 0.05em 0.05em;
+}
+
+.button-container {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: center;
+	gap: 16px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	padding-bottom: 75px;
 }
