@@ -184,11 +184,12 @@
 }
 
 .background {
+	position: relative;
+	width: 100%;
+	height: 100%;
 	background-image: url('./assets/background/flower_house.png');
-	min-height: 100vh;
-	min-height: 100svh;
 	background-position: center;
-	background-size: contain;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
