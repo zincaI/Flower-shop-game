@@ -1,0 +1,1 @@
+import{a as e,c as t,n,t as r}from"./jsx-runtime-C3yIsJH3.js";var i=r(),a=e(function(){return(0,i.jsx)(`html`,{children:(0,i.jsxs)(`body`,{children:[(0,i.jsx)(`h1`,{children:`Hello world!`}),(0,i.jsx)(n,{}),(0,i.jsx)(t,{})]})})});export{a as default};

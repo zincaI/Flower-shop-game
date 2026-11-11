@@ -1,9 +1,12 @@
 import StartMenu from '../components/StartMenu';
+import './StartPage.css';
 
 function StartPage() {
 	return (
 		<>
-			<StartMenu />
+			<div className='background'>
+				<StartMenu />
+			</div>
 		</>
 	);
 }
