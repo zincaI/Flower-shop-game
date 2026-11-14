@@ -1,9 +1,9 @@
 import { PassThrough } from "node:stream";
 import { createReadableStreamFromReadable } from "@react-router/node";
-import { Outlet, Scripts, ServerRouter, UNSAFE_withComponentProps } from "react-router";
+import { Links, Meta, Outlet, Scripts, ScrollRestoration, ServerRouter, UNSAFE_withComponentProps, useNavigate } from "react-router";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
-import { jsx, jsxs } from "react/jsx-runtime";
+import { Fragment, jsx, jsxs } from "react/jsx-runtime";
 // \0rolldown/runtime.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
@@ -63,42 +63,138 @@ function handleRequest(request, responseStatusCode, responseHeaders, routerConte
 // app/root.tsx
 var root_exports = /* @__PURE__ */ __exportAll({ default: () => root_default });
 var root_default = UNSAFE_withComponentProps(function App() {
-	return /* @__PURE__ */ jsx("html", { children: /* @__PURE__ */ jsxs("body", { children: [
-		/* @__PURE__ */ jsx("h1", { children: "Hello world!" }),
-		/* @__PURE__ */ jsx(Outlet, {}),
-		/* @__PURE__ */ jsx(Scripts, {})
-	] }) });
+	return /* @__PURE__ */ jsxs("html", {
+		lang: "en",
+		children: [/* @__PURE__ */ jsxs("head", { children: [
+			/* @__PURE__ */ jsx("meta", { charSet: "utf-8" }),
+			/* @__PURE__ */ jsx("meta", {
+				name: "viewport",
+				content: "width=device-width, initial-scale=1"
+			}),
+			/* @__PURE__ */ jsx(Meta, {}),
+			/* @__PURE__ */ jsx(Links, {})
+		] }), /* @__PURE__ */ jsxs("body", { children: [
+			/* @__PURE__ */ jsx(Outlet, {}),
+			/* @__PURE__ */ jsx(ScrollRestoration, {}),
+			/* @__PURE__ */ jsx(Scripts, {})
+		] })]
+	});
+});
+// src/components/Button.tsx
+function Button({ ...props }) {
+	return /* @__PURE__ */ jsx("button", {
+		className: "open-button open-button--hover open-button--active",
+		...props
+	});
+}
+// src/components/StartMenu.tsx
+function StartMenu() {
+	const navigate = useNavigate();
+	return /* @__PURE__ */ jsxs("div", { children: [
+		/* @__PURE__ */ jsx("h1", { children: "Welcome to the Flower Shop Game!" }),
+		/* @__PURE__ */ jsx("p", { children: "Click the button below to start your flower shop adventure." }),
+		/* @__PURE__ */ jsxs("div", {
+			className: "button-container",
+			children: [/* @__PURE__ */ jsx(Button, {
+				onClick: () => {
+					navigate("/level");
+				},
+				children: "Start Game"
+			}), /* @__PURE__ */ jsx(Button, { children: "Stats" })]
+		})
+	] });
+}
+// src/pages/StartPage.tsx
+var StartPage_exports = /* @__PURE__ */ __exportAll({ default: () => StartPage_default });
+function StartPage() {
+	return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsx("div", {
+		className: "background",
+		children: /* @__PURE__ */ jsx(StartMenu, {})
+	}) });
+}
+var StartPage_default = UNSAFE_withComponentProps(StartPage);
+// src/pages/Level.tsx
+var Level_exports = /* @__PURE__ */ __exportAll({ default: () => Level_default });
+var Level_default = UNSAFE_withComponentProps(function Level() {
+	return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs("div", {
+		className: "level-scene",
+		children: [/* @__PURE__ */ jsx("div", { className: "sky" }), /* @__PURE__ */ jsx("div", { className: "table" })]
+	}) });
 });
 // \0virtual:react-router/server-manifest
 var server_manifest_default = {
 	"entry": {
-		"module": "/assets/entry.client-DVu4Fgjo.js",
-		"imports": ["/assets/rolldown-runtime-WkwZ5CU-.js", "/assets/jsx-runtime-C3yIsJH3.js"],
+		"module": "/assets/entry.client-CZGzylVj.js",
+		"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
 		"css": []
 	},
-	"routes": { "root": {
-		"id": "root",
-		"parentId": void 0,
-		"path": "",
-		"index": void 0,
-		"caseSensitive": void 0,
-		"hasAction": false,
-		"hasLoader": false,
-		"hasClientAction": false,
-		"hasClientLoader": false,
-		"hasClientMiddleware": false,
-		"hasDefaultExport": true,
-		"hasErrorBoundary": false,
-		"module": "/assets/root-Wu5XE__j.js",
-		"imports": ["/assets/rolldown-runtime-WkwZ5CU-.js", "/assets/jsx-runtime-C3yIsJH3.js"],
-		"css": [],
-		"clientActionModule": void 0,
-		"clientLoaderModule": void 0,
-		"clientMiddlewareModule": void 0,
-		"hydrateFallbackModule": void 0
-	} },
-	"url": "/assets/manifest-a8d9d62d.js",
-	"version": "a8d9d62d",
+	"routes": {
+		"root": {
+			"id": "root",
+			"parentId": void 0,
+			"path": "",
+			"index": void 0,
+			"caseSensitive": void 0,
+			"hasAction": false,
+			"hasLoader": false,
+			"hasClientAction": false,
+			"hasClientLoader": false,
+			"hasClientMiddleware": false,
+			"hasDefaultExport": true,
+			"hasErrorBoundary": false,
+			"module": "/assets/root-D7pbakLE.js",
+			"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
+			"css": ["/assets/root-C4jab27M.css"],
+			"clientActionModule": void 0,
+			"clientLoaderModule": void 0,
+			"clientMiddlewareModule": void 0,
+			"hydrateFallbackModule": void 0
+		},
+		"../src/pages/StartPage": {
+			"id": "../src/pages/StartPage",
+			"parentId": "root",
+			"path": "/",
+			"index": void 0,
+			"caseSensitive": void 0,
+			"hasAction": false,
+			"hasLoader": false,
+			"hasClientAction": false,
+			"hasClientLoader": false,
+			"hasClientMiddleware": false,
+			"hasDefaultExport": true,
+			"hasErrorBoundary": false,
+			"module": "/assets/StartPage-CuH_Nn2m.js",
+			"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
+			"css": ["/assets/StartPage-D9W8rw3H.css"],
+			"clientActionModule": void 0,
+			"clientLoaderModule": void 0,
+			"clientMiddlewareModule": void 0,
+			"hydrateFallbackModule": void 0
+		},
+		"../src/pages/Level": {
+			"id": "../src/pages/Level",
+			"parentId": "root",
+			"path": "/level",
+			"index": void 0,
+			"caseSensitive": void 0,
+			"hasAction": false,
+			"hasLoader": false,
+			"hasClientAction": false,
+			"hasClientLoader": false,
+			"hasClientMiddleware": false,
+			"hasDefaultExport": true,
+			"hasErrorBoundary": false,
+			"module": "/assets/Level-TktcxUVS.js",
+			"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
+			"css": ["/assets/Level-CJaX5b5t.css"],
+			"clientActionModule": void 0,
+			"clientLoaderModule": void 0,
+			"clientMiddlewareModule": void 0,
+			"hydrateFallbackModule": void 0
+		}
+	},
+	"url": "/assets/manifest-f8ac27e8.js",
+	"version": "f8ac27e8",
 	"sri": void 0
 };
 // \0virtual:react-router/server-build
@@ -120,13 +216,31 @@ var routeDiscovery = {
 };
 var publicPath = "/";
 var entry = { module: entry_server_node_exports };
-var routes = { "root": {
-	id: "root",
-	parentId: void 0,
-	path: "",
-	index: void 0,
-	caseSensitive: void 0,
-	module: root_exports
-} };
+var routes = {
+	"root": {
+		id: "root",
+		parentId: void 0,
+		path: "",
+		index: void 0,
+		caseSensitive: void 0,
+		module: root_exports
+	},
+	"../src/pages/StartPage": {
+		id: "../src/pages/StartPage",
+		parentId: "root",
+		path: "/",
+		index: void 0,
+		caseSensitive: void 0,
+		module: StartPage_exports
+	},
+	"../src/pages/Level": {
+		id: "../src/pages/Level",
+		parentId: "root",
+		path: "/level",
+		index: void 0,
+		caseSensitive: void 0,
+		module: Level_exports
+	}
+};
 var allowedActionOrigins = false;
 export { allowedActionOrigins, server_manifest_default as assets, assetsBuildDirectory, basename, entry, future, isSpaMode, prerender, publicPath, routeDiscovery, routes, ssr, unstable_apiOnly, unstable_apiServerOrigin };
