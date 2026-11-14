@@ -23,4 +23,18 @@
 .table {
 	background-image: url('../assets/background/table.png');
 	background-position: center top;
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+.packaging {
+	width: 40svw;
+}
+
+.mat {
+	width: 30svw;
+}
+
+.flowers {
+	width: 30svw;
 }
