@@ -1,0 +1,1 @@
+.level-scene{grid-template-rows:repeat(2,minmax(0,1fr));width:100vw;height:100svh;display:grid;position:fixed;inset:0;overflow:hidden}.sky,.table{background-position:top;background-repeat:no-repeat;background-size:cover;min-height:0}.sky{background-image:url(/assets/daytime-CS46_IrP.png)}.table{background-image:url(/assets/table-88x-AtqT.png)}
