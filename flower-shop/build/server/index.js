@@ -4,6 +4,9 @@ import { Links, Meta, Outlet, Scripts, ScrollRestoration, ServerRouter, UNSAFE_w
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { Fragment, jsx, jsxs } from "react/jsx-runtime";
+import { Dialog, Tooltip } from "radix-ui";
+import { Cross2Icon } from "@radix-ui/react-icons";
+import { useState } from "react";
 // \0rolldown/runtime.js
 var __defProp = Object.defineProperty;
 var __exportAll = (all, no_symbols) => {
@@ -113,19 +116,80 @@ function StartPage() {
 	}) });
 }
 var StartPage_default = UNSAFE_withComponentProps(StartPage);
+// src/components/Modal.tsx
+function Modal({ open, onOpenChange }) {
+	return /* @__PURE__ */ jsx(Dialog.Root, {
+		open,
+		onOpenChange,
+		children: /* @__PURE__ */ jsxs(Dialog.Portal, { children: [/* @__PURE__ */ jsx(Dialog.Overlay, { className: "modal-overlay" }), /* @__PURE__ */ jsxs(Dialog.Content, {
+			className: "modal",
+			children: [
+				/* @__PURE__ */ jsx(Dialog.Title, { children: "Edit profile" }),
+				/* @__PURE__ */ jsx(Dialog.Description, { children: "Make changes to your profile here. Click save when you're done." }),
+				/* @__PURE__ */ jsx(Dialog.Close, {
+					asChild: true,
+					children: /* @__PURE__ */ jsx("button", {
+						type: "button",
+						"aria-label": "Close",
+						children: /* @__PURE__ */ jsx(Cross2Icon, {})
+					})
+				})
+			]
+		})] })
+	});
+}
+// src/components/Tooltip.tsx
+function TooltipComponent({ message, children }) {
+	return /* @__PURE__ */ jsx(Tooltip.Provider, { children: /* @__PURE__ */ jsxs(Tooltip.Root, { children: [/* @__PURE__ */ jsx(Tooltip.Trigger, {
+		asChild: true,
+		children: /* @__PURE__ */ jsx("div", { children })
+	}), /* @__PURE__ */ jsx(Tooltip.Portal, { children: /* @__PURE__ */ jsx(Tooltip.Content, {
+		className: "game-tooltip",
+		children: message
+	}) })] }) });
+}
 // src/pages/Level.tsx
 var Level_exports = /* @__PURE__ */ __exportAll({ default: () => Level_default });
 var Level_default = UNSAFE_withComponentProps(function Level() {
-	return /* @__PURE__ */ jsx(Fragment, { children: /* @__PURE__ */ jsxs("div", {
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	return /* @__PURE__ */ jsxs(Fragment, { children: [/* @__PURE__ */ jsxs("div", {
 		className: "level-scene",
-		children: [/* @__PURE__ */ jsx("div", { className: "sky" }), /* @__PURE__ */ jsx("div", { className: "table" })]
-	}) });
+		children: [/* @__PURE__ */ jsx("div", { className: "sky" }), /* @__PURE__ */ jsxs("div", {
+			className: "table",
+			children: [
+				/* @__PURE__ */ jsx(TooltipComponent, {
+					message: "Packaging. Press to adjust the ribbon and wrapping paper of the bouquet",
+					children: /* @__PURE__ */ jsx("button", {
+						className: "packaging button",
+						onClick: () => setIsModalOpen(true)
+					})
+				}),
+				/* @__PURE__ */ jsx(TooltipComponent, {
+					message: "Mat. Press it to reveal the current state of the bouquet",
+					children: /* @__PURE__ */ jsx("button", {
+						className: "mat button",
+						onClick: () => {}
+					})
+				}),
+				/* @__PURE__ */ jsx(TooltipComponent, {
+					message: "Flowers. Press to select flowers for the bouquet.",
+					children: /* @__PURE__ */ jsx("button", {
+						className: "flowers button",
+						onClick: () => {}
+					})
+				})
+			]
+		})]
+	}), /* @__PURE__ */ jsx(Modal, {
+		open: isModalOpen,
+		onOpenChange: setIsModalOpen
+	})] });
 });
 // \0virtual:react-router/server-manifest
 var server_manifest_default = {
 	"entry": {
-		"module": "/assets/entry.client-CZGzylVj.js",
-		"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
+		"module": "/assets/entry.client-HXEjesij.js",
+		"imports": ["/assets/jsx-runtime-Dsii5NYo.js", "/assets/react-dom-B7BvYYFE.js"],
 		"css": []
 	},
 	"routes": {
@@ -143,7 +207,7 @@ var server_manifest_default = {
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
 			"module": "/assets/root-D7pbakLE.js",
-			"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
+			"imports": ["/assets/jsx-runtime-Dsii5NYo.js", "/assets/react-dom-B7BvYYFE.js"],
 			"css": ["/assets/root-C4jab27M.css"],
 			"clientActionModule": void 0,
 			"clientLoaderModule": void 0,
@@ -184,17 +248,17 @@ var server_manifest_default = {
 			"hasClientMiddleware": false,
 			"hasDefaultExport": true,
 			"hasErrorBoundary": false,
-			"module": "/assets/Level-TktcxUVS.js",
-			"imports": ["/assets/jsx-runtime-Dsii5NYo.js"],
-			"css": ["/assets/Level-CJaX5b5t.css"],
+			"module": "/assets/Level-Bc2ijezl.js",
+			"imports": ["/assets/jsx-runtime-Dsii5NYo.js", "/assets/react-dom-B7BvYYFE.js"],
+			"css": ["/assets/Level-DziSXv4Q.css"],
 			"clientActionModule": void 0,
 			"clientLoaderModule": void 0,
 			"clientMiddlewareModule": void 0,
 			"hydrateFallbackModule": void 0
 		}
 	},
-	"url": "/assets/manifest-f8ac27e8.js",
-	"version": "f8ac27e8",
+	"url": "/assets/manifest-3e744b91.js",
+	"version": "3e744b91",
 	"sri": void 0
 };
 // \0virtual:react-router/server-build

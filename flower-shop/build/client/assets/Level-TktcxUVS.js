@@ -1,1 +1,0 @@
-import{o as e,t}from"./jsx-runtime-Dsii5NYo.js";var n=t(),r=e(function(){return(0,n.jsx)(n.Fragment,{children:(0,n.jsxs)(`div`,{className:`level-scene`,children:[(0,n.jsx)(`div`,{className:`sky`}),(0,n.jsx)(`div`,{className:`table`})]})})});export{r as default};

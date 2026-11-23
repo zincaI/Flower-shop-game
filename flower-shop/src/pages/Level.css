@@ -27,14 +27,26 @@
 	flex-wrap: nowrap;
 }
 
+.button {
+	height: 100%;
+}
+
 .packaging {
-	width: 40svw;
+	width: 35svw;
 }
 
 .mat {
-	width: 30svw;
+	width: 38svw;
 }
 
 .flowers {
 	width: 30svw;
+}
+
+.modal {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: 'm6x11';
 }
