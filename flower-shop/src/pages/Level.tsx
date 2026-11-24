@@ -4,6 +4,7 @@ import TooltipComponent from '../components/Tooltip';
 import './Level.css';
 import { useState } from 'react';
 import FLowerSelector from '../components/FlowerSelector';
+import BouquetPreview from '../components/BouquetPreview';
 
 type ActiveStation = 'packaging' | 'mat' | 'flowers' | null;
 
@@ -59,8 +60,18 @@ export default function Level() {
 					description={
 						activeStation ? MODAL_CONFIG[activeStation].description : undefined
 					}>
-					{activeStation === 'packaging' && <PackagingSelector />}
-					{activeStation === 'mat' && <div>Mat content goes here</div>}
+					{activeStation === 'packaging' && (
+						<PackagingSelector selectedId={null} onSelect={() => {}} />
+					)}
+					{activeStation === 'mat' && (
+						<BouquetPreview
+							selection={{
+								flower: 'hyacinth',
+								ribbon: 'red',
+								wrapper: 'yellow',
+							}}
+						/>
+					)}
 					{activeStation === 'flowers' && <FLowerSelector />}
 				</Modal>
 			</div>
