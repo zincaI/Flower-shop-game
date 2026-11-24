@@ -3,6 +3,7 @@ import PackagingSelector from '../components/PackagingSelector';
 import TooltipComponent from '../components/Tooltip';
 import './Level.css';
 import { useState } from 'react';
+import FLowerSelector from '../components/FlowerSelector';
 
 type ActiveStation = 'packaging' | 'mat' | 'flowers' | null;
 
@@ -57,9 +58,11 @@ export default function Level() {
 					title={activeStation ? MODAL_CONFIG[activeStation].title : undefined}
 					description={
 						activeStation ? MODAL_CONFIG[activeStation].description : undefined
-					}
-					children={activeStation === 'packaging' && <PackagingSelector />}
-				/>
+					}>
+					{activeStation === 'packaging' && <PackagingSelector />}
+					{activeStation === 'mat' && <div>Mat content goes here</div>}
+					{activeStation === 'flowers' && <FLowerSelector />}
+				</Modal>
 			</div>
 		</>
 	);
