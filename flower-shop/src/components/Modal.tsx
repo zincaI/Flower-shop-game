@@ -26,7 +26,7 @@ export default function Modal({
 					<Dialog.Description>{description}</Dialog.Description>
 					<div>{children}</div>
 					<Dialog.Close asChild>
-						<button type='button' aria-label='Close'>
+						<button id='close-button' aria-label='Close'>
 							<Cross2Icon />
 						</button>
 					</Dialog.Close>

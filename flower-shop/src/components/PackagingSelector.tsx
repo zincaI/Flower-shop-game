@@ -1,54 +1,54 @@
+import type { RibbonId, WrapperId } from '../data/bouquetAssets';
 import './PackagingSelector.css';
 
 type ColorOption = {
 	id: string;
-	name: string;
 	hex: string;
 };
 
 const WRAPPING_COLORS: ColorOption[] = [
-	{ id: 'pink', name: 'Pastel Pink', hex: '#F48FB1' },
-	{ id: 'yellow', name: 'Sunny Yellow', hex: '#F4C430' },
-	{ id: 'mint', name: 'Sage Mint', hex: '#B2D1B2' },
-	{ id: 'cream', name: 'Soft Cream', hex: '#FFF5D6' },
+	{ id: 'pink', hex: '#F0ABE1' },
+	{ id: 'yellow', hex: '#E4A53E' },
+	{ id: 'red', hex: '#B92B20' },
+	{ id: 'blue', hex: '#180DBC' },
 ];
 
 const RIBBON_COLORS: ColorOption[] = [
-	{ id: 'red', name: 'Crimson Red', hex: '#DC143C' },
-	{ id: 'blue', name: 'Azure Blue', hex: '#007FFF' },
-	{ id: 'green', name: 'Emerald Green', hex: '#228B22' },
-	{ id: 'purple', name: 'Violet Purple', hex: '#8A2BE2' },
+	{ id: 'red', hex: '#B92B20' },
+	{ id: 'blue', hex: '#180DBC' },
+	{ id: 'green', hex: '#3C6B21' },
+	{ id: 'yellow', hex: '#E4A53E' },
 ];
 
 type PackagingSelectorProps = {
-	selectedId: string | null;
-	onSelect: (id: string) => void;
+	onSelectWrapper: (id: WrapperId) => void;
+	onSelectRibbon: (id: RibbonId) => void;
 };
 
 export default function PackagingSelector({
-	selectedId,
-	onSelect,
+	onSelectWrapper,
+	onSelectRibbon,
 }: PackagingSelectorProps) {
 	return (
 		<>
 			<h4 className='display'>Wrapping paper</h4>
 			<div className='display color-options'>
 				{WRAPPING_COLORS.map((color) => (
-					<div
+					<button
 						key={color.id}
-						className={`square ${selectedId === color.id ? 'selected' : ''}`}
+						className={`square`}
 						style={{ backgroundColor: color.hex }}
-						onClick={() => onSelect(color.id)}></div>
+						onClick={() => onSelectWrapper(color.id as WrapperId)}></button>
 				))}
 			</div>
 			<h4 className='display'>Ribbon</h4>
 			<div className='display color-options'>
 				{RIBBON_COLORS.map((color) => (
-					<div
+					<button
 						key={color.id}
-						className={`square ${selectedId === color.id ? 'selected' : ''}`}
+						className={`square`}
 						style={{ backgroundColor: color.hex }}
-						onClick={() => onSelect(color.id)}></div>
+						onClick={() => onSelectRibbon(color.id as RibbonId)}></button>
 				))}
 			</div>
 		</>

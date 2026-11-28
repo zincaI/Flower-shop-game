@@ -5,6 +5,7 @@ import './Level.css';
 import { useState } from 'react';
 import FLowerSelector from '../components/FlowerSelector';
 import BouquetPreview from '../components/BouquetPreview';
+import useBouquet from '../context/useBouquet';
 
 type ActiveStation = 'packaging' | 'mat' | 'flowers' | null;
 
@@ -25,6 +26,7 @@ const MODAL_CONFIG = {
 
 export default function Level() {
 	const [activeStation, setActiveStation] = useState<ActiveStation>(null);
+	const { bouquet, selectFlower, selectWrapper, selectRibbon } = useBouquet();
 
 	return (
 		<>
@@ -61,18 +63,23 @@ export default function Level() {
 						activeStation ? MODAL_CONFIG[activeStation].description : undefined
 					}>
 					{activeStation === 'packaging' && (
-						<PackagingSelector selectedId={null} onSelect={() => {}} />
+						<PackagingSelector
+							onSelectWrapper={selectWrapper}
+							onSelectRibbon={selectRibbon}
+						/>
 					)}
 					{activeStation === 'mat' && (
 						<BouquetPreview
 							selection={{
-								flower: 'hyacinth',
-								ribbon: 'red',
-								wrapper: 'yellow',
+								flower: bouquet.flower,
+								ribbon: bouquet.ribbon,
+								wrapper: bouquet.wrapper,
 							}}
 						/>
 					)}
-					{activeStation === 'flowers' && <FLowerSelector />}
+					{activeStation === 'flowers' && (
+						<FLowerSelector onSelectFlower={selectFlower} />
+					)}
 				</Modal>
 			</div>
 		</>

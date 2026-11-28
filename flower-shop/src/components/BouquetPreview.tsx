@@ -20,9 +20,7 @@ export default function BouquetPreview({ selection }: BouquetSelectionProps) {
 
 	return (
 		<div className='bouquet-composite' role='img' aria-label='Bouquet preview'>
-			{paperLayer && (
-				<img className='bouquet-layer' src={paperLayer} alt='' />
-			)}
+			{paperLayer && <img className='bouquet-layer' src={paperLayer} alt='' />}
 			{ribbonLayer && (
 				<img className='bouquet-layer' src={ribbonLayer} alt='' />
 			)}
